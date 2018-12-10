@@ -1,0 +1,151 @@
+main{
+ display:grid;
+ max-width: 1000px;
+ margin: 10px auto;
+ grid-template-columns:repeat(6, 1fr);
+ grid-template-rows: auto auto auto;
+ grid-template-areas:   "topper topper topper topper topper topper"
+ 						"aside products products products products products"
+ 						"pages pages pages pages pages pages"
+}
+
+div.topper{
+	grid-area: topper;
+}
+aside.left{
+	margin-right: 20px;
+	grid-area: aside;
+}
+.products{
+	grid-area: products;
+}
+.pages{
+	grid-area: pages
+}
+
+.carousel img{
+	max-width: 100%;
+    height: auto;
+}
+/*ul.breadcrumb {
+    padding: 0px 16px;
+    margin:0px;
+    list-style: none;
+}
+
+ul.breadcrumb li {display: inline;}
+
+ul.breadcrumb li+li:before {
+    padding: 0px 8px;
+    color: #3A3A3A;
+    content: "\00BB";
+}
+
+ul.breadcrumb li:nth-last-child(1) {
+    color: #12B844;
+}*/
+.underCartBar { 
+	display: flex;
+	justify-content: space-between;
+	margin: 0px 0px;
+	line-height: 80%;
+}
+
+/*__________________________________________________*/
+.products{
+	padding: 5px;
+	display: grid;
+	grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));
+	/*grid-template-rows:repeat(auto) ;*/
+	grid-gap: 20px;
+	justify-items: center;
+	align-content: start;	
+	background-color: white;
+
+
+}
+
+.products span{
+	display: flex;
+	margin:5px auto;
+	/*width: 180px;*/
+	justify-content: center;
+
+}
+.productCat{	
+	display: flex;
+	justify-content: center;
+}
+
+
+.mainbar{
+	width: 100%;
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+}
+.barname {
+	display: block; 
+	font-size: 1.17em;
+	font-weight: bolder;
+}
+.sort{
+display: flex;
+flex-wrap: wrap;
+width:300px;
+flex-wrap: nowrap;
+justify-content: flex-end;
+align-items: center;
+}
+
+section.productSession{
+		border: 2px dotted lightgray;
+		min-height: 385px;
+		background-color:white; 
+		
+}
+section.productSession:before, section.productSession:after{
+
+}
+section.productSession {
+	max-width: 185px;
+
+}
+div.products img{max-width: 185px;}
+
+.productCat{
+	color:gray;
+	font-size: 0.7em;
+}
+.productPrice{
+	color:#12B844;
+	font-size: 0.9em;
+	font-style: italic;
+}
+div.products:before, div.products:after{
+
+}
+
+
+div.barname{cursor: pointer;
+visibility:hidden;
+}
+@media screen and (max-width:427px){
+	main{
+ display:grid;
+ margin: 10px auto;
+ grid-template-columns:1fr;
+ grid-template-rows: auto;
+ grid-template-areas:   "topper"
+ 						"aside"
+ 						"products"
+ 						"pages"
+}
+#latestPrdct {display:none;}
+aside{display:none;}
+div.barname{
+visibility:visible;
+}
+
+}

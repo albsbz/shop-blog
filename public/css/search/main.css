@@ -1,0 +1,118 @@
+main{
+ display:grid;
+ max-width: 1000px;
+ margin: 10px auto;
+ grid-template-columns:repeat(6, 1fr);
+ grid-template-rows: auto auto auto;
+ grid-template-areas:   "topper topper topper topper topper topper"
+ 						"products products products products products products"
+ 						"pages pages pages pages pages pages"
+}
+
+div.topper{
+	grid-area: topper;
+}
+aside.left{
+	margin-right: 20px;
+	grid-area: aside;
+}
+.products{
+	grid-area: products;
+}
+.pages{
+	grid-area: pages
+}
+
+.carousel img{
+	max-width: 100%;
+    height: auto;
+}
+ul.breadcrumb {
+    padding: 0px 16px;
+    margin:0px;
+    list-style: none;
+}
+
+ul.breadcrumb li {display: inline;}
+
+ul.breadcrumb li+li:before {
+    padding: 0px 8px;
+    color: #3A3A3A;
+    content: "\00BB";
+}
+
+ul.breadcrumb li:nth-last-child(1) {
+    color: #12B844;
+}
+.underCartBar { 
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0px;
+}
+/*__________________________________________________*/
+.products{
+	margin-top: 10px;
+	display: grid;
+	grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));
+	grid-template-rows:repeat(auto) ;
+	grid-gap: 20px;
+	justify-items: center;
+	align-content: start;	
+
+
+}
+.products a{
+	/*display:block;*/
+	/*max-height: 180px;*/
+}
+.products span {
+	display: flex;
+	margin:5px auto;
+	/*width: 180px;*/
+	justify-content: center;
+
+}
+
+.pages ul{
+	display: flex;
+	justify-content: flex-end;
+}
+.pages ul li{
+	display: inline-block;
+}
+.mainbar{
+	width: 100%;
+	display:flex;
+	justify-content: space-between;
+
+}
+.barname {
+	display: block; 
+	font-size: 1.17em;
+	font-weight: bold;
+}
+.sort{
+display: flex;
+width:250px;
+flex-wrap: nowrap;
+justify-content: space-between;
+align-items: center;
+}
+.sort div{
+	border: 1px solid lightgray;
+	width:25px;
+	height: 25px;
+
+}
+.sort form{
+	display: inline-block;;
+	margin:0px;
+}
+.sort div i{
+margin: 5px;
+}
+section.productSession{
+		border: 1px dotted lightgray;
+		min-height: 385px;
+ }
+section.productSession img{max-width: 195px;}

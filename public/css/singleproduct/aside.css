@@ -1,0 +1,53 @@
+
+
+#category, #filter, .leftitems, #latestPrdct, #testimonials{
+	border-top:1px solid #3A3A3A;
+    margin-bottom: 30px;
+}
+
+p {	position: relative;
+	margin: 0px;
+	text-align: left;
+}
+.card1 {
+    border-top: 1px solid lightgray;
+}
+.card1 img{
+    float: left;
+}
+.card1 div{
+    height: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.price {
+    color: #12B844;
+}
+.qoutAuthor{
+    text-align: right;
+    font-style: italic;: 
+}
+.flexdiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.card1 {
+    border-top: 1px solid lightgray;
+    display:flex;
+    align-items: center;
+}
+.card1 img{
+    /*float: left;*/
+    width:100px;
+    height: 150px;
+    /*flex-shrink: 0;*/
+}
+.card1 div{
+    height: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#testimonials{min-height:180px;}
