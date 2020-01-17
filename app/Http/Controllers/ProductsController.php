@@ -59,7 +59,9 @@ class ProductsController extends Controller
 //---------------------------------------------------------------
 
         $filterValues['min']=Product::where('instock','=', 1)->pluck('price')->min();
+        if ($filterValues['min']===null) {$filterValues['min']=0;}
         $filterValues['max']=Product::where('instock','=', 1)->pluck('price')->max();
+        if ($filterValues['max']===null) {$filterValues['max']=999;}
         
         if (isset($request->priceFilter)){
             session(['priceFilter'=>collect($request->priceFilter)]);
@@ -75,7 +77,7 @@ class ProductsController extends Controller
         
         $filterValues['currentMin']=session('priceFilter')['currentMin'];
         $filterValues['currentMax']=session('priceFilter')['currentMax'];
-        if ($filterValues){
+        if ($filterValues['currentMin']){
             $allproducts = Product::where('instock','=', 1)
             ->where('price',
                 '>=', 
@@ -130,7 +132,7 @@ class ProductsController extends Controller
 
 
         // $relatedproducts = Product::find([1, 2, 3, 4]);
-        return view('singleproduct', compact('relatedproducts', 'id', 'currentproduct', 'gallery', 'related', 'recomend'));
+        return view('singleproduct', compact( 'id', 'currentproduct', 'gallery', 'related', 'recomend'));
     }
     public function search(Request  $request)
     {

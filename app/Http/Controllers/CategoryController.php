@@ -63,16 +63,17 @@ class CategoryController extends Controller
             $descendants=[$id];
 
         };
-
-        // dd($descendants);
+        
 
         $filterValues['min']=Product::whereIn('category_id', $descendants)->where('instock','=', 1)->pluck('price')->min();
+        if ($filterValues['min']===null) {$filterValues['min']=0;}
         $filterValues['max']=Product::whereIn('category_id', $descendants)->where('instock','=', 1)->pluck('price')->max();
-        
+        if ($filterValues['max']===null) {$filterValues['max']=999;}
+        // dd($filterValues);
         if (isset($request->priceFilter)){
             session(['priceFilter'=>collect($request->priceFilter)]);
         }
-        if (null ==session('priceFilter')){
+        if (session('priceFilter')==null){
             session(['priceFilter'=>
                 collect([
                     'currentMin'=>$filterValues['min'],  
@@ -83,7 +84,8 @@ class CategoryController extends Controller
 
         $filterValues['currentMin']=session('priceFilter')['currentMin'];
         $filterValues['currentMax']=session('priceFilter')['currentMax'];
-        if ($filterValues){
+        
+        if ($filterValues['currentMin']){
             $allproducts = Product::whereIn('category_id', $descendants)
             ->where('instock','=', 1)
             ->where('price','>=', $filterValues['currentMin'])
