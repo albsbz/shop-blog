@@ -32,7 +32,7 @@ class MainController extends Controller
         $categories = Product_category::withDepth()->where('parent_id', null)->get();
         // $categories = Product_category::withDepth()->having('depth', '=', 1)->get();
         $products = Product::all()->random(10);
-        $recomend=Product::where('recommended', 1)->random(3);
+        $recomend=Product::all()->where('recommended', 1);
         return view('home', compact('products', 'related', 'recomend', 'categories'));
     }
 
