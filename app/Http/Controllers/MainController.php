@@ -29,7 +29,8 @@ class MainController extends Controller
         }
        
        
-        $categories = Product_category::withDepth()->having('depth', '=', 1)->get();
+        $categories = Product_category::withDepth()->where('parent_id', null)->get();
+        // $categories = Product_category::withDepth()->having('depth', '=', 1)->get();
         $products = Product::all()->random(10);
         return view('home', compact('products', 'related', 'recomend', 'categories'));
     }

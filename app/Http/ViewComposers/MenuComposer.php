@@ -39,7 +39,9 @@ class MenuComposer
 
     // $cats=DB::table('product_categories')->pluck('name', 'id');
 
-    $cats=Product_category::withDepth()->having('depth', '=', 0)->get();
+    // $cats=Product_category::withDepth()->having('depth', '=', 0)->get();
+    $cats=Product_category::withDepth()->where('parent_id', null)->get();
+    // dd($cats);
      $contacts=Contact::first();
     $art_cats=Article_category::all();
     $this->categories=$cats;

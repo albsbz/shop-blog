@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('gallery')->nullable();
             $table->string('name', 64);
             $table->decimal('price', 6, 2);
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->boolean('recommended')->default(false);
             $table->string('slug', 64)->unique();
             $table->boolean('instock')->default(1);

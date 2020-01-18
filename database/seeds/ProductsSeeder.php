@@ -27,7 +27,8 @@ class ProductsSeeder extends Seeder
             'role_id' => '1'
         ]);
 		
-		$ids = Product_category::withDepth()->having('depth', '=', 1)->get()->pluck('id');
+        // $ids = Product_category::withDepth()->having('depth', '=', 1)->get()->pluck('id');
+        $ids = Product_category::withDepth()->where('parent_id','!=',null)->get()->pluck('id');
         $faker = Faker\Factory::create();
 		foreach ($ids as $value) {
 			$ids2[]=$value;

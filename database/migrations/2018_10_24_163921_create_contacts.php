@@ -13,6 +13,7 @@ class CreateContacts extends Migration
      
     public function up()
     {
+        Schema::dropIfExists('contacts');
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->timestamps();
