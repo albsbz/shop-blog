@@ -45,7 +45,7 @@ class ComposerServiceProvider extends ServiceProvider
        //  });
     
         // Вариант 2
-       View::share('contacts', Contact::first());
+      //  View::share('contacts', Contact::first());
   }
 
   /**
