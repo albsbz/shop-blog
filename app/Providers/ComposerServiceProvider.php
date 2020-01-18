@@ -22,6 +22,9 @@ class ComposerServiceProvider extends ServiceProvider
       'header', 'App\Http\ViewComposers\MenuComposer'
     );
     View::composer(
+      'layouts.parent', 'App\Http\ViewComposers\MenuComposer'
+    );
+    View::composer(
       'catalog.aside', 'App\Http\ViewComposers\MenuComposer'
     );
     View::composer(
