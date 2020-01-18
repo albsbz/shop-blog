@@ -26,7 +26,7 @@ class AdminController extends Controller
             $galImgs=implode(', ', $gallery);
            
         }
-         return view('admin2.index', compact('directories','category','name','mainPath','mainImg','gallery','galImgs'));
+         return view('admin2.index', compact('directories','name','mainPath','mainImg','gallery','galImgs'));
     }
 }
 //try
